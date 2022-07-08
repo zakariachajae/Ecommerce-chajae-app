@@ -65,19 +65,23 @@
         </div>
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
-                <a href="" class="text-decoration-none">
+                <a href="{{url('/')}}" class="text-decoration-none">
                     <h1 class="m-0 display-5 font-weight-semi-bold text-center"><img class="img-fluid" src="{{asset('assets/img/5.png')}}" alt=Icon style="height: 150px; "> </h1>
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
-                <form action="">
+                <form action="{{url('/search')}}" method="POST">
+                    @csrf
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="chercher un produit">
+                        
+                        <input type="text" class="form-control" name="name" placeholder="chercher un produit">
+                        
                         <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-secondary">
+                            <button type="submit" class="input-group-text bg-transparent text-secondary">
                                 <i class="fa fa-search"></i>
-                            </span>
+                            </button>
                         </div>
+                   
                     </div>
                 </form>
             </div>
@@ -86,6 +90,7 @@
                     <i class="fas fa-heart text-secondary"></i>
                     <span class="badge">0</span>
                 </a>
+                
                 <a href="{{url('/panier')}}" class="btn border">
                     <i class="fas fa-shopping-cart text-secondary"></i>
                     <span class="badge"> 

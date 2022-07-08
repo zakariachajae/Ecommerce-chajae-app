@@ -15,10 +15,7 @@ class BoutiqueController extends Controller
         return view('boutique', compact('produits'));
     }
 
-    public function cart()
-    {
-        return view('panier');
-    }
+   
 
     public function addToCart($id)
     {
@@ -38,12 +35,15 @@ class BoutiqueController extends Controller
                 ]
             ];
             session()->put('cart', $cart);
+            
+            Produit::where('id',$id)->increment('nbr_panier');
             return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
         // if cart not empty then check if this product exist then increment quantity
         if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
             session()->put('cart', $cart);
+            Produit::where('id',$id)->increment('nbr_panier');
             return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
         // if item not exist in cart then add to cart with quantity = 1
@@ -54,6 +54,7 @@ class BoutiqueController extends Controller
 
         ];
         session()->put('cart', $cart);
+        Produit::where('id',$id)->increment('nbr_panier');
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 }

@@ -27,7 +27,13 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/',[ WelcomeController::class , 'index']);
-Route::get('/boutique', [BoutiqueController::class, 'index']);
+Route::post('/search',[ WelcomeController::class , 'search']);
+
 Route::get('/dashboard',[DashboardController::class, 'index'])->middleware(['auth']);
-Route::get('/panier',[BoutiqueController::class, 'cart'])->middleware(['auth']);
+
+Route::get('/boutique', [BoutiqueController::class, 'index']);
 Route::get('/ajouter-au-panier/{id}',[BoutiqueController::class, 'addToCart'])->middleware(['auth']);
+
+Route::get('/panier',[PanierController::class, 'cart'])->middleware(['auth']);
+Route::patch('/update-cart', [PanierController::class,'update'])->middleware(['auth']);
+Route::patch('/remove-from-cart/{id}', [PanierController::class,'remove'])->middleware(['auth']);

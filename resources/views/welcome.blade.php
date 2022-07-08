@@ -127,7 +127,7 @@
         </div>
        
         <div class="row px-xl-5 pb-3">
-            @foreach ($dernierProduits as $dernierProduit)
+            @foreach ($tendanceProduits as $tendanceProduit)
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 
                 <div class="card product-item border-0 mb-4">
@@ -135,9 +135,9 @@
                         <img class="img-fluid w-100" src="{{asset('assets/img/product.jpg')}}" alt="">
                     </div>
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">{{$dernierProduit->nom}}</h6>
+                        <h6 class="text-truncate mb-3">{{$tendanceProduit->nom}}</h6>
                         <div class="d-flex justify-content-center">
-                            <h6>{{$dernierProduit->prix}} <small>MAD</small></h6>
+                            <h6>{{$tendanceProduit->prix}} <small>MAD</small></h6>
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
