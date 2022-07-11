@@ -7,7 +7,7 @@
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" style="height: 410px;">
-                        <img class="img-fluid" src="{{asset('assets/img/1.jpg')}}" alt=Image >
+                        <img class="img-fluid" src="{{asset('assets/img/librairie.jpg')}}" alt=Image >
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
                                 <h4 class="text-light text-uppercase font-weight-medium mb-3">Offres incontournables</h4>
@@ -18,6 +18,16 @@
                     </div>
                     <div class="carousel-item" style="height: 410px;">
                         <img class="img-fluid" src="{{asset('assets/img/2.jpg')}}" alt=Image >
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Rentrée scolaire</h4>
+                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">tous ce que vous en aurez besoins.. on l'a  </h3>
+                                <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="height: 410px;">
+                        <img class="img-fluid" src="{{asset('assets/img/1.jpg')}}" alt=Image >
                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
                                 <h4 class="text-light text-uppercase font-weight-medium mb-3">Rentrée scolaire</h4>
@@ -88,8 +98,12 @@
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Details</a>
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Panier</a>
+                        <a href="" class="btn btn-sm text-dark p-0"><i
+                                class="fas fa-eye text-warning mr-1"></i>Details</a>
+                        <a href="{{url('/ajouter-au-panier',[$dernierProduit->id])}}" class="btn btn-sm text-dark p-0"><i
+                                class="fas fa-heart text-danger mr-1"></i>Favoris</a>
+                                <a href="{{url('/ajouter-au-panier',[$dernierProduit->id])}}" class="btn btn-sm text-dark p-0"><i
+                                    class="fas fa-shopping-cart text-success mr-1"></i>Panier</a>
                     </div>
                 </div>
                

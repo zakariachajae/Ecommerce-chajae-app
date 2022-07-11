@@ -11,7 +11,7 @@
             <div class="d-inline-flex">
                 <p class="m-0"><a href="{{url('/')}}">Home</a></p>
                 <p class="m-0 px-2">-</p>
-                <p class="m-0">Shop</p>
+                <p class="m-0">produits populaire</p>
             </div>
         </div>
     </div>
@@ -164,18 +164,18 @@
                             <form action="">
                                 
                             </form>
-                          
+                            <form action="" method="get">
                                 <select class="form-select" onchange="if (this.value) window.location.href=this.value" aria-label="Default select example">
                                     <option selected>tous les produits</option>
                                     <option value="{{url('/orderBy/latest')}}">Date d'ajout (récent) </option>
                                     <option value="{{url('/orderBy/oldest')}}">Date d'ajout (anicen)</option>
-                                    <option value="{{url('/orderBy/popularity')}}">popularité</option>
+                                    <option value="{{url('/orderBy/popularity')}}" selected>popularité</option>
                                     <option value="{{url('/orderBy/latest')}}">prix croissant</option>
                                   </select>
-                        
+                        </form>
                         </div>
                     </div>
-                    @foreach($produits as $produit)
+                    @foreach($tendanceProduits as $produit)
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4">
                             <div
@@ -191,7 +191,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="{{url('/detail',['id'=>$produit->id])}}" class="btn btn-sm text-dark p-0"><i
+                                <a href="" class="btn btn-sm text-dark p-0"><i
                                         class="fas fa-eye text-warning mr-1"></i>Details</a>
                                 <a href="{{url('/ajouter-au-panier',[$produit->id])}}" class="btn btn-sm text-dark p-0"><i
                                         class="fas fa-heart text-danger mr-1"></i>Favoris</a>
@@ -201,15 +201,39 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="pagination">
-                    {{$produits->links()}}
+                   
+                 
+                    
+                  
+                   
+                   
+                    <div class="col-12 pb-1">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center mb-3">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-
-                
             
-                
-         
+            <!-- Shop Product End -->
+      
+    
+    <!-- Shop End -->
 
 
 </x-app-layout>

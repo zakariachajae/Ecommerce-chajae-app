@@ -34,9 +34,9 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{url('/')}}" class="nav-item nav-link">Acceuil</a>
                         <a href="{{url('/boutique')}}" class="nav-item nav-link">Boutique</a>
-                        <a href="detail.html" class="nav-item nav-link">Librairie</a>
-                        <a href="detail.html" class="nav-item nav-link">Papeterie</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="detail.html" class="nav-item nav-link">Contact</a>
+                        <a href="detail.html" class="nav-item nav-link">Rentrée scolaire</a>
+                     
                     </div>
                     <div class="navbar-nav ml-auto py-0">
                         @if (Auth::check())
@@ -44,12 +44,14 @@
                         <a href="{{url('/logout')}}" class="nav-item nav-link">logout</a>
                         @else
                         <a href="{{url('/login')}}" class="nav-item nav-link">Login</a>
-                        <a href="{{url('/register')}}" class="nav-item nav-link">Register</a>
+                        <a href="{{url('/register')}}" class="nav-item nav-link">Inscription</a>
                         @endif
                     </div>
                 </div>
             </nav>
         </div>
+   
+
         
         
         

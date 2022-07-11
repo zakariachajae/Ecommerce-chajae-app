@@ -33,7 +33,15 @@ Route::get('/dashboard',[DashboardController::class, 'index'])->middleware(['aut
 
 Route::get('/boutique', [BoutiqueController::class, 'index']);
 Route::get('/ajouter-au-panier/{id}',[BoutiqueController::class, 'addToCart'])->middleware(['auth']);
+Route::get('/detail/{id}',[BoutiqueController::class, 'detail']);
+Route::get('/orderBy/latest', [BoutiqueController::class, 'sortByLatest']);
+Route::get('/orderBy/oldest', [BoutiqueController::class, 'sortByOldest']);
+Route::get('/orderBy/popularity', [BoutiqueController::class, 'sortByPopularity']);
+Route::get('/orderBy/price', [BoutiqueController::class, 'sortByPrice']);
+
 
 Route::get('/panier',[PanierController::class, 'cart'])->middleware(['auth']);
 Route::patch('/update-cart', [PanierController::class,'update'])->middleware(['auth']);
 Route::patch('/remove-from-cart/{id}', [PanierController::class,'remove'])->middleware(['auth']);
+
+
