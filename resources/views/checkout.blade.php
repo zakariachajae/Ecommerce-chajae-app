@@ -5,57 +5,34 @@
         </h2>
     </x-slot>
 
-
-
-
-
-
-    <!-- Cart Start -->
     <div class="container-fluid pt-5">
         <div class="row px-xl-5">
-            <div class="col-lg-8 table-responsive mb-5">
-                <table class="table table-bordered text-center mb-0">
-                    <thead class="bg-secondary text-dark">
-                        <tr>
-                            <th>Produit</th>
-                            <th>Prix</th>
-                            <th>Quantité</th>
-                            <th>Total</th>
-                            <th>Supprimer</th>
-                        </tr>
-                    </thead>
-                    <tbody class="align-middle">
-                        @if (session('cart'))
-                            @foreach (session('cart') as $id => $details)
-                                <tr>
-                                    <td class="align-middle"><img src="img/product-1.jpg" alt=""
-                                            style="width: 50px;"> {{ $details['name'] }}</td>
-                                    <td class="align-middle">{{ $details['price'] }}</td>
-                                    <td class="align-middle">
-
-                                        <input type="number"
-                                            class="form-control form-control-sm bg-secondary text-center"
-                                            value="{{ $details['quantity'] }}">
-
-
-                                    </td>
-                                    <td class="align-middle">
-                                        {{ $details['price'] * $details['quantity'] }}<small>MAD</small></td>
-                                    <td class="align-middle">
-                                        <form action="{{ url('/remove-from-cart' , ['id'=>$id]   ) }}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('PATCH') }}
-                                         <button type="submit" class="btn btn-danger btn-sm" style="margin-top: 10px;"><i class="fa fa-times"></i></button>
-                                        </form></td>
-                                       
-                                    </td>
-                                     </tr>
-                            @endforeach
-                        @endif
-
-
-                    </tbody>
-                </table>
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <h4 class="font-weight-semi-bold mb-4">Veuillez saisir vos informations personnelles</h4>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>nom</label>
+                            <input class="form-control" type="text" placeholder="votre nom">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Prenom</label>
+                            <input class="form-control" type="text" placeholder="votre prenom">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" placeholder="exemple@email.com">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>numéro de telephone</label>
+                            <input class="form-control" type="text" placeholder="+212">
+                        </div>
+                        
+                     
+                       
+                    </div>
+                </div>
+                
             </div>
             <div class="col-lg-4">
                 <div class="card border-secondary mb-5">
@@ -70,13 +47,15 @@
                             <p>{{ $details['quantity'] }}x {{ $details['name'] }}</p>
                             <p>{{ $details['price'] }} <small>MAD</small></p>
                         </div>
+                        
                         @endforeach
+                        <h5 class="font-weight-medium mb-3">methode de paiement </h5>
                         @endif
                     </div>
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">{{$total}}<small>MAD</small></h5>
+                            <h5 class="font-weight-bold"><small>MAD</small></h5>
                         </div>
                     </div>
                 </div>
@@ -99,8 +78,6 @@
                     </div>
                 </div>
             </div>
-        
-  
-
-
+        </div>
+    </div>
 </x-app-layout>

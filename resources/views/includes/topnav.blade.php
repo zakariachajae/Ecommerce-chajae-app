@@ -34,7 +34,7 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{url('/')}}" class="nav-item nav-link">Acceuil</a>
                         <a href="{{url('/boutique')}}" class="nav-item nav-link">Boutique</a>
-                        <a href="detail.html" class="nav-item nav-link">Contact</a>
+                        <a href="{{url('/contact')}}" class="nav-item nav-link">Contact</a>
                         <a href="detail.html" class="nav-item nav-link">Rentrée scolaire</a>
                      
                     </div>

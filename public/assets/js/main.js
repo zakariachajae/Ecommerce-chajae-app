@@ -1,3 +1,5 @@
+const { shallowReadonly } = require("vue");
+
 (function ($) {
     "use strict";
     
@@ -99,6 +101,25 @@
         }
         button.parent().parent().find('input').val(newVal);
     });
+
+    $('.addToWishlist').click( function (e) {
+        e.preventDefault();
+
+        var produit_id= $(this).closest('.produit_data').find('.produit_id').val();
+        
+        $.ajax({
+            method:"POST",
+            url:"/ajouter-wishlist",
+            data: {
+                'produit_id':produit_id,
+            },
+            success: function(response){
+                swal(response.status);
+            }
+        });
+    });
+
+
     
 })(jQuery);
 

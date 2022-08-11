@@ -167,15 +167,16 @@
                             <form action="" method="get">
                                 <select class="form-select" onchange="if (this.value) window.location.href=this.value" aria-label="Default select example">
                                     <option >tous les produits</option>
-                                    <option value="{{url('/orderBy/latest')}}" selected>Date d'ajout (récent) </option>
+                                    <option value="{{url('/orderBy/latest')}}">Date d'ajout (récent) </option>
                                     <option value="{{url('/orderBy/oldest')}}">Date d'ajout (anicen)</option>
                                     <option value="{{url('/orderBy/popularity')}}">popularité</option>
                                     <option value="{{url('/orderBy/price')}}">prix croissant</option>
+                                    <option value="{{url('/orderBy/prices')}}">prix decroissant</option>
                                   </select>
                         </form>
                         </div>
                     </div>
-                    @foreach($dernierProduits as $produit)
+                    @foreach($Produits as $produit)
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4">
                             <div
@@ -201,9 +202,10 @@
                         </div>
                     </div>
                     @endforeach
+                </div>
                    
-                    <div class="pagination">
-                        {{$dernierProduits->links()}}
+                    <div style="text-align: center">
+                        {{$Produits->links()}}
                         </div>
             
             <!-- Shop Product End -->

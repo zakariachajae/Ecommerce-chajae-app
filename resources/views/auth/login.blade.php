@@ -1,11 +1,7 @@
 @include('includes.header')
 
             <!-- /sidebar menu -->
-     
-
-
-     
-
+    
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -19,18 +15,24 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
+        <div class="container">
+            <div class="row justify-content-center align-items-center" style="height:50vh">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <!-- Email Address -->
-            <div>
+            <div class="form-group">
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
+            <div class="form-group">
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password" class="block mt-1 w-full"
@@ -46,6 +48,7 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <div><span><a href={{url('/register')}}>s'inscrire</a></span></div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
@@ -59,6 +62,12 @@
                 </x-button>
             </div>
         </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         @include('includes.footer')
     </x-auth-card>
 

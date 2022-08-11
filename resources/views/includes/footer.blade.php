@@ -7,11 +7,11 @@
             </a>
             <p>Chez Papeterie librairie CHAJAE , nous fournissons des produits de marque et de qualité avec des prix qui sont a la porté 
                 ; N’hésitez pas de nous visiter , on vous attend avec passion !!</p>
-            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i> MAGASIN N3 – ANGLE MANSOUR DAHBI RES MYRAMAR
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-warning mr-3"></i> MAGASIN N3 – ANGLE MANSOUR DAHBI RES MYRAMAR
                 KENITRA, GHARB CHERARDA BENI HSSEN 14000
                 MOROCCO</p>
-            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>plchajae@gmail.com</p>
-            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+212 0 537 394 246</p>
+            <p class="mb-2"><i class="fa fa-envelope text-warning mr-3"></i>plchajae@gmail.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-warning mr-3"></i>+212 0 537 394 246</p>
         </div>
         <div class="col-lg-8 col-md-12">
             <div class="row">
@@ -48,7 +48,7 @@
                                 required="required" />
                         </div>
                         <div>
-                            <button class="btn btn-primary btn-block border-0 py-3" type="submit">inscrivez vous</button>
+                            <button class="btn btn-success btn-block border-0 py-3" type="submit">inscrivez vous</button>
                         </div>
                     </form>
                 </div>

@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produit;
+use App\Models\Wishlist;
+use Illuminate\Support\Facades\Auth;
+
 
 class BoutiqueController extends Controller
 {
     public function index()
     {
 
-        $produits = Produit::paginate(3);
+        $produits = Produit::simplePaginate(9);
+        $wishlists = Wishlist::where('user_id', Auth::id())->get();
 
         return view('boutique', compact('produits'));
     }
@@ -60,28 +64,29 @@ class BoutiqueController extends Controller
 
     public function sortByLatest()
     {
-        $dernierProduits = Produit::orderBy('created_at', 'DESC')->get();
+        $dernierProduits = Produit::orderBy('created_at', 'DESC')->simplePaginate(3);
         return view('orderBy.latest', compact('dernierProduits'));
     }
     public function sortByOldest()
     {
-        $premierProduits = Produit::orderBy('created_at', 'ASC')->get();
+        $premierProduits = Produit::orderBy('created_at', 'ASC')->simplePaginate(3);
         return view('orderBy.oldest', compact('premierProduits'));
     }
     public function sortByPopularity()
     {
-        $tendanceProduits = Produit::orderBy('nbr_panier', 'DESC')->get();
+        $tendanceProduits = Produit::orderBy('nbr_panier', 'DESC')->simplePaginate(3);
         return view('orderBy.popularity', compact('tendanceProduits'));
     }
-    public function sortByPice()
+    public function sortByPrice()
     {
-        $Produits = Produit::orderBy('prix', 'ASC')->get();
+        $Produits = Produit::orderBy('prix', 'ASC')->simplePaginate(3);
+        return view('orderBy.price', compact('Produits'));
+    }
+    public function sortByPrices()
+    {
+        $Produits = Produit::orderBy('prix', 'DESC')->simplePaginate(3);
         return view('orderBy.price', compact('Produits'));
     }
 
-    public function detail($id)
-    {
-        $produit = Produit::findOrFail($id);
-        return view('detail', compact('produit'));
-    }
+   
 }

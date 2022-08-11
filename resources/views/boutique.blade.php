@@ -166,11 +166,11 @@
                             </form>
                           
                                 <select class="form-select" onchange="if (this.value) window.location.href=this.value" aria-label="Default select example">
-                                    <option selected>tous les produits</option>
                                     <option value="{{url('/orderBy/latest')}}">Date d'ajout (récent) </option>
                                     <option value="{{url('/orderBy/oldest')}}">Date d'ajout (anicen)</option>
                                     <option value="{{url('/orderBy/popularity')}}">popularité</option>
-                                    <option value="{{url('/orderBy/latest')}}">prix croissant</option>
+                                    <option value="{{url('/orderBy/price')}}">prix croissant</option>
+                                    <option value="{{url('/orderBy/prices')}}">prix decroissant</option>
                                   </select>
                         
                         </div>
@@ -180,11 +180,22 @@
                         <div class="card product-item border-0 mb-4">
                             <div
                                 class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="{{asset('assets/img/product.jpg')}}" alt="">
+                                <img class="img-fluid w-100" src="{{$produit->image_file}}" alt="">
                                 
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h6 class="text-truncate mb-3">{{$produit->nom}}</h6>
+                                <h6 class="text-truncate mb-3">{{$produit->nom}}
+                                    @if($produit->quantite_en_stock===0)
+                                    <span>
+                                        <p style="color: red">PAS EN STOCK</p>
+                                    </span>
+                                    @else
+                                    <span>
+                                        <p style="color:green">EN STOCK </p>
+                                    </span>
+                                    @endif
+                                    
+                                </h6>
                                 <div class="d-flex justify-content-center">
                                     <h6>{{$produit->prix}}<small>MAD</small></h6>
                                     
@@ -193,7 +204,7 @@
                             <div class="card-footer d-flex justify-content-between bg-light border">
                                 <a href="{{url('/detail',['id'=>$produit->id])}}" class="btn btn-sm text-dark p-0"><i
                                         class="fas fa-eye text-warning mr-1"></i>Details</a>
-                                <a href="{{url('/ajouter-au-panier',[$produit->id])}}" class="btn btn-sm text-dark p-0"><i
+                                <a href="{{url('/ajouter-wishlist',[$produit->id])}}" class="btn btn-sm text-dark p-0"><i
                                         class="fas fa-heart text-danger mr-1"></i>Favoris</a>
                                         <a href="{{url('/ajouter-au-panier',[$produit->id])}}" class="btn btn-sm text-dark p-0"><i
                                             class="fas fa-shopping-cart text-success mr-1"></i>Panier</a>
@@ -201,12 +212,12 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="pagination">
-                    {{$produits->links()}}
-                    </div>
+                   
                 </div>
 
-                
+                <div style="text-align: center">
+                    {{$produits->links()}}
+                    </div>
             
                 
          

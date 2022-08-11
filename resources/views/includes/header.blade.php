@@ -86,9 +86,18 @@
                 </form>
             </div>
             <div class="col-lg-3 col-6 text-right">
-                <a href="" class="btn border">
+                <a href="{{url('/wishlist')}}" class="btn border">
                     <i class="fas fa-heart text-secondary"></i>
-                    <span class="badge">0</span>
+                    <span class="badge">
+                        @if(Auth::check() && session('nbr_wishlist')!==null)
+                        {{session('nbr_wishlist')}}
+                        
+
+                        
+                        @else
+                        0
+                        @endif
+                    </span>
                 </a>
                 
                 <a href="{{url('/panier')}}" class="btn border">
