@@ -23,7 +23,7 @@ class WelcomeController extends Controller
 
     public function search(Request $request)
     {
-        $rechercheProduits = Produit::where('nom', 'like', '%'.$request->name.'%')->get();
+        $rechercheProduits = Produit::where('nom', 'like', '%'.$request->name.'%')->simplePaginate(9);
         return view('search', compact('rechercheProduits'));
     }
 
@@ -34,7 +34,7 @@ class WelcomeController extends Controller
         ]);
 
         Newsletter::create([
-            'id_proprietaire' => Auth::user()->id,
+            
             'email' => $request->email,
         ]);
         return redirect()->back();

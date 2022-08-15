@@ -16,25 +16,23 @@
         <div class="col-lg-8 col-md-12">
             <div class="row">
                 <div class="col-md-4 mb-5">
-                    <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                    <h5 class="font-weight-bold text-dark mb-4">Liens rapide</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                        <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                        <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                        <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                        <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                        <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        <a class="text-dark mb-2" href="{{url('/welcome')}}"><i class="fa fa-angle-right mr-2"></i>Acceuil</a>
+                        <a class="text-dark mb-2" href="{{url('/boutique')}}"><i class="fa fa-angle-right mr-2"></i>Librairie</a>
+                        <a class="text-dark mb-2" href="{{url('/contact')}}"><i class="fa fa-angle-right mr-2"></i>Papetrie</a>
+                        <a class="text-dark mb-2" href="{{url('/boutique')}}"><i class="fa fa-angle-right mr-2"></i>rentrée scolaire</a>
+                        <a class="text-dark mb-2" href="{{url('panier')}}"><i class="fa fa-angle-right mr-2"></i>panier</a>
+                        <a class="text-dark" href="{{url('wishlist')}}"><i class="fa fa-angle-right mr-2"></i>favoris</a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
-                    <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                    <h5 class="font-weight-bold text-dark mb-4">social media</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                        <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                        <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                        <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                        <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                        <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        <a class="text-dark mb-2" href="https://web.facebook.com/LIBRAIRIECHAJAE"><i class="fa fa-angle-right mr-2"></i>Facebook</a>
+                        <a class="text-dark mb-2" href="https://www.linkedin.com/in/papeterie-librairie-chajae-a8b591169/"><i class="fa fa-angle-right mr-2"></i>Linkedin</a>
+                        <a class="text-dark mb-2" href="https://www.instagram.com/librairie_chajae/"><i class="fa fa-angle-right mr-2"></i>Instagram</a>
+                      
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -56,8 +54,8 @@
         </div>
     </div>
     <div class="row border-top border-light mx-xl-5 py-4">
-        <div class="col-md-6 px-xl-0">
-            <p class="mb-md-0 text-center text-md-left text-dark">
+        <div class="col-md-center px-xl-0">
+            <p class="mb-md-0  text-dark" style="text-align:center">
                 &copy; <a class="text-dark font-weight-semi-bold" href="#">PAPETRIE LIBRAIRIE CHAJAE</a>. All Rights Reserved. 
                 
                
@@ -67,6 +65,7 @@
                
             </p>
         </div>
+        <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
         <div class="col-md-6 px-xl-0 text-center text-md-right">
             <img class="img-fluid" src="img/payments.png" alt="">
         </div>
@@ -76,7 +75,7 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
 
 
 <!-- JavaScript Libraries -->

@@ -36,7 +36,9 @@ class BoutiqueController extends Controller
                     "quantity" => 1,
                     "price" => $product->prix,
 
-                ]
+                ],
+
+            
             ];
             session()->put('cart', $cart);
 
@@ -62,31 +64,55 @@ class BoutiqueController extends Controller
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
-    public function sortByLatest()
+    public function sort($id, $cat=null)
     {
-        $dernierProduits = Produit::orderBy('created_at', 'DESC')->simplePaginate(3);
-        return view('orderBy.latest', compact('dernierProduits'));
+       
+        $options=null;
+        switch($id ){
+            case "latest" :
+                $options= Produit::orderBy('created_at', 'DESC')->simplePaginate(9);
+            break;
+            case "oldest" :
+                $options= Produit::orderBy('created_at', 'ASC')->simplePaginate(9);
+            break;
+            case "popularity" :
+                $options= Produit::orderBy('nbr_panier', 'DESC')->simplePaginate(9);
+            break;
+            case "higherPrice" :
+                $options= Produit::orderBy('prix', 'ASC')->simplePaginate(9);
+            break;
+            case "lowerPrice" :
+                
+            $options=Produit::orderBy('prix', 'DESC')->simplePaginate(9);
+            break;
+            case "catLatest" :
+                $options= Produit::where('genre',$cat)->orderBy('created_at', 'DESC')->simplePaginate(9);
+            break;
+            case "catOldest" :
+                $options= Produit::where('genre',$cat)->orderBy('created_at', 'ASC')->simplePaginate(9);
+            break;
+            case "catPopularity" :
+                $options= Produit::where('genre',$cat)->orderBy('nbr_panier', 'DESC')->simplePaginate(9);
+            break;
+            case "catHigherPrice" :
+                $options= Produit::where('genre',$cat)->orderBy('prix', 'ASC')->simplePaginate(9);
+            break;
+            case "catLowerPrice" :
+                
+            $options=Produit::where('genre',$cat)->orderBy('prix', 'DESC')->simplePaginate(9);
+            break;
+        }
+      
+        return view('sortBy', compact('options'));
     }
-    public function sortByOldest()
-    {
-        $premierProduits = Produit::orderBy('created_at', 'ASC')->simplePaginate(3);
-        return view('orderBy.oldest', compact('premierProduits'));
+
+    public function category($id){
+        $produits=Produit::where('genre',$id)->simplePaginate(9);
+        $categorie=$id;
+        return view('categorie',compact('produits','categorie'));
+     
     }
-    public function sortByPopularity()
-    {
-        $tendanceProduits = Produit::orderBy('nbr_panier', 'DESC')->simplePaginate(3);
-        return view('orderBy.popularity', compact('tendanceProduits'));
-    }
-    public function sortByPrice()
-    {
-        $Produits = Produit::orderBy('prix', 'ASC')->simplePaginate(3);
-        return view('orderBy.price', compact('Produits'));
-    }
-    public function sortByPrices()
-    {
-        $Produits = Produit::orderBy('prix', 'DESC')->simplePaginate(3);
-        return view('orderBy.price', compact('Produits'));
-    }
+    
 
    
 }

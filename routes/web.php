@@ -46,11 +46,15 @@ Route::get('/orderBy/oldest', [BoutiqueController::class, 'sortByOldest']);
 Route::get('/orderBy/popularity', [BoutiqueController::class, 'sortByPopularity']);
 Route::get('/orderBy/price', [BoutiqueController::class, 'sortByPrice']);
 Route::get('/orderBy/prices', [BoutiqueController::class, 'sortByPrices']);
+Route::get('/sortBy/{id}/{cat?}', [BoutiqueController::class, 'sort']);
+Route::get('/categorie/{id}', [BoutiqueController::class, 'category']);
 
 
 Route::get('/panier',[PanierController::class, 'cart'])->middleware(['auth']);
+Route::Post('/update_quantite',[PanierController::class, 'cart'])->middleware(['auth']);
+
 Route::patch('/update-cart', [PanierController::class,'update'])->middleware(['auth']);
-Route::patch('/remove-from-cart/{id}', [PanierController::class,'remove'])->middleware(['auth']);
+Route::get('/remove-from-cart/{id}', [PanierController::class,'remove'])->middleware(['auth']);
 
 Route::get('/wishlist',[WishlistController::class,'index'])->middleware(['auth']);
 Route::get('ajouter-wishlist/{id}',[WishlistController::class,'ajouter'])->middleware(['auth']);
@@ -62,4 +66,10 @@ Route::post('/ajouter-commentaire/{id}',[DetailController::class, 'add_comment']
 Route::get('/contact', [ContactController::class,'index']);
 
 Route::get('/checkout', [CheckoutController::class,'index'])->middleware(['auth']);
+Route::post('/finaliser-commande', [CheckoutController::class, 'finaliser'])->middleware(['auth']);
+Route::get('/recu', [CheckoutController::class, 'recu'])->middleware(['auth']);
+
+
+
+
 

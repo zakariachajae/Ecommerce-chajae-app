@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PanierController extends Controller
 {
@@ -13,6 +14,7 @@ class PanierController extends Controller
             foreach(session('cart') as $id=>$details){
                 $total += $details['price'] * $details['quantity'];
             }
+         
         }
         return view('panier',compact('total'));
     }
@@ -27,6 +29,8 @@ class PanierController extends Controller
             session()->flash('success', 'Cart updated successfully');
         }
     }
+
+    
 
     public function remove($id)
     {

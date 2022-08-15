@@ -18,6 +18,7 @@ class AddFieldsToWishlistsTable extends Migration
             $table->string('description_produit');
             $table->string('genre_produit');
             $table->integer('prix_produit');
+            
         });
     }
 

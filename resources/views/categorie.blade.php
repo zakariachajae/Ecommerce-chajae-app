@@ -15,7 +15,6 @@
             </div>
         </div>
     </div>
-
     <!-- Page Header End -->
 
 
@@ -74,6 +73,7 @@
                         
                         <hr>
                     </div>
+                   
                     
 
                 </div>
@@ -82,6 +82,11 @@
         
             <!-- Shop Product Start -->
             <div class="col-lg-9 col-md-12">
+                @if (count($produits) ===0 ) 
+                    <div class="alert alert-warning" role="alert">
+                        pas d'article pour le moment
+                      </div>
+                @else
                 <div class="row pb-3">
                     <div class="col-12 pb-1">
                         <div class="d-flex align-items-center justify-content-between mb-4">
@@ -90,11 +95,11 @@
                             </form>
                           
                                 <select class="form-select" onchange="if (this.value) window.location.href=this.value" aria-label="Default select example">
-                                    <option value="{{url('/sortBy/latest')}}">Date d'ajout (récent) </option>
-                                    <option value="{{url('/sortBy/oldest')}}">Date d'ajout (anicen)</option>
-                                    <option value="{{url('/sortBy/popularity')}}">popularité</option>
-                                    <option value="{{url('/sortBy/higherPrice')}}">prix croissant</option>
-                                    <option value="{{url('/sortBy/lowerPrice')}}">prix decroissant</option>
+                                    <option value="{{url('/sortBy/catLatest',['cat'=> $categorie])}}">Date d'ajout (récent) </option>
+                                    <option value="{{url('/sortBy/catOldest',['cat'=> $categorie])}}">Date d'ajout (anicen)</option>
+                                    <option value="{{url('/sortBy/catPopularity',['cat'=> $categorie])}}">popularité</option>
+                                    <option value="{{url('/sortBy/catHigherPrice',['cat'=> $categorie])}}">prix croissant</option>
+                                    <option value="{{url('/sortBy/catLowerPrice',['cat'=> $categorie])}}">prix decroissant</option>
                                   </select>
                         
                         </div>
@@ -104,7 +109,7 @@
                         <div class="card product-item border-0 mb-4">
                             <div
                                 class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="{{$produit->image_file}}" alt="">
+                                <img class="img-fluid w-100" src="{{asset($produit->image_file)}}" alt="">
                                 
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
@@ -136,7 +141,7 @@
                         </div>
                     </div>
                     @endforeach
-                   
+                   @endif
                 </div>
 
                 <div style="text-align: center">

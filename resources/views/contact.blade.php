@@ -52,8 +52,8 @@
                     <p class="mb-2"><i class="fa fa-envelope text-secondary mr-3"></i>plchajae@gmail.com</p>
                     <p class="mb-2"><i class="fa fa-phone-alt text-secondary mr-3"></i>+212 0 537 394 246</p>
                 
-                
-            
+                </div> 
+            </div>
         
     
     <!-- Contact End -->

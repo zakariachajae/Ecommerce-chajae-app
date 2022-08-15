@@ -12,7 +12,7 @@
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner border">
                         <div class="carousel-item active">
-                            <img class="img-fluid w-100" src="{{$produit->image_file}}" alt="">
+                            <img class="img-fluid w-100" src="{{asset($produit->image_file)}}" alt="">
                         </div>
                     </div>
                    
@@ -22,14 +22,8 @@
             <div class="col-lg-7 pb-5">
                 <h3 class="font-weight-semi-bold">{{$produit->nom}}</h3>
                 <div class="d-flex mb-3">
-                    <div class="text-primary mr-2">
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star-half-alt"></small>
-                        <small class="far fa-star"></small>
-                    </div>
-                    <small class="pt-1">(50 Reviews)</small>
+                    
+                    
                 </div>
                 <h3 class="font-weight-semi-bold mb-4">{{$produit->prix}} <small>MAD</small></h3>
                 <p class="mb-4">{{$produit->description}}</p>

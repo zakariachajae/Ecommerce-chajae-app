@@ -5,11 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Newsletter extends Model
+class Commande extends Model
 {
     protected $fillable=[
-         
-        'email'
+        
+        'nom',
+        'prenom',
+        'email',
+        'telephone',
+        'methode_paiement',
+        'article',
+        'id_commande',
     ];
     use HasFactory;
 }
